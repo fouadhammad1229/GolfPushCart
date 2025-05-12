@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+        .section p {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Project Documentation</h1>
+
+    <img src="luvyouguys.jpg" width="920" height="720">
+
+    <div class="section">
+        <h2>Project Title</h2>
+        <p>Low Cost mmWave Radar for Hand Gesture</p>
+    </div>
+
+    <div class="section">
+        <h2>Description</h2>
+	<p>The Low-Cost mmWave Radar for Hand Gesture Control project aims to 
+develop a hands-free control system for a golf pushcart using gesture 
+recognition technology. By integrating the Infineon Project2Go mmWave 
+Radar Board with the XENSIV 24 GHz BGT24MTR12 radar module and the 
+XMC4700 ARM Cortex-M4 microcontroller, the system will accurately detect
+ user gestures within a 2-meter range and translate them into motion 
+commands.</p>
+    </div>
+
+    <div class="section">
+        <h2>Our Sponsors</h2>
+        <p>Bayner Arigong and Jonathan Casamayer</p>
+    </div>
+
+    <div class="section">
+        <h2>Team Members</h2>
+        <p>
+            </p><ul>
+                <li>Christopher Richardson</li>
+                <li>Fouad Hammad</li>
+                <li>Jerson Restrepo</li>
+                <li>Juan Navarro</li>
+		<li>Garrett Nelson</li>
+            </ul>
+        <p></p>
+    </div>
+
+    <div class="section">
+        <h2>Selected Concept</h2>
+        <p>The selected design concept utilizes the XENSIV 24 GHz 
+BGT24MTR12 radar module for gesture recognition combined with the 
+XMC4700 microcontroller for signal processing and motor control. The 
+pushcart is driven by a DC motor system controlled via PWM signals, 
+while a solar panel setup supplies additional power, reducing battery 
+consumption. This concept was chosen due to its ability to deliver 
+hands-free operation, reliable gesture detection, and sustainable power 
+management, meeting the primary requirements of the project.
+</p>
+    </div>
+
+    <div class="section">
+    <h2>Preliminary Design</h2>
+    <p><strong>Radar System (Infineon Project2Go mmWave Radar Board):</strong></p>
+    <ul>
+        <li><strong>Input:</strong> Hand gestures detected within a 2-meter range.</li>
+        <li><strong>Output:</strong> Radar signal data sent to the microcontroller for processing.</li>
+        <li><strong>Implementation Approach:</strong> 
+            <ul>
+                <li>The radar board uses Frequency Modulated Continuous Wave (FMCW) technology to detect movement and identify gestures.</li>
+                <li>The radar will interface with the XMC4700 microcontroller via SPI communication.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>Microcontroller (XMC4700 ARM Cortex-M4 MCU):</strong></p>
+    <ul>
+        <li><strong>Input:</strong> Radar signal data (hand gesture information).</li>
+        <li><strong>Output:</strong> Motor control commands based on processed gesture data.</li>
+        <li><strong>Implementation Approach:</strong> 
+            <ul>
+                <li>The microcontroller decodes radar signals using algorithms for gesture recognition.</li>
+                <li>It processes commands within 0.5 seconds for real-time response, using custom firmware developed in DAVE™ IDE.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>Motor System (Front-Wheel Motorized Platform):</strong></p>
+    <ul>
+        <li><strong>Input:</strong> Motor control commands from the microcontroller.</li>
+        <li><strong>Output:</strong> Drives the front wheel, providing forward and turning motion.</li>
+        <li><strong>Implementation Approach:</strong> 
+            <ul>
+                <li>The selected motor must meet torque and speed requirements (up to 5 mph on flat surfaces).</li>
+                <li>A DC motor with integrated encoder feedback will be used for precise speed control.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>Power System (Solar Panel and Battery Integration):</strong></p>
+    <ul>
+        <li><strong>Input:</strong> Solar energy from direct sunlight, battery state of charge (SOC) data.</li>
+        <li><strong>Output:</strong> Supplies power to the motor and electronics.</li>
+        <li><strong>Implementation Approach:</strong> 
+            <ul>
+                <li>Solar panels will charge the battery, increasing SOC by at least 10% in 4 hours of direct sunlight.</li>
+                <li>The battery management system (BMS) will monitor charge levels, ensuring the battery does not drop below 20%.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>User Interface and Feedback Mechanism:</strong></p>
+    <ul>
+        <li><strong>Input:</strong> User gestures, system status information.</li>
+        <li><strong>Output:</strong> Visual or auditory feedback indicating command execution.</li>
+        <li><strong>Implementation Approach:</strong> 
+            <ul>
+                <li>The interface will include an LED display and a small speaker for real-time feedback.</li>
+                <li>Pseudo code for gesture detection and feedback loop will be implemented to ensure user commands are acknowledged promptly.</li>
+            </ul>
+        </li>
+    </ul>
+    <img src="unnamed.png" width=1200 height=600>
+</div>
+
+
+    <div class="section">
+        <h2>Initial Results</h2>
+	<p> So far, we have made significant progress on the project by 
+completing the initial design of the pushcart, integrating motor 
+drivers, and successfully setting up the Raspberry Pi to interface with 
+the push cart spefically. These steps have laid a solid foundation for 
+the next phases of the project. </p>
+
+	<p> </p>
+	<p><strong> Raspberry Pi Progress </strong></p>
+	<p> We have made substantial progress in leveraging the Raspberry Pi’s 
+ability to communicate with hardware through driver libraries like 
+WiringPi and python's own driver libaries provided with Raspbian itself.
+ We successfully gained control of the wheel, and we are now preparing 
+to integrate CUDA to introduce machine learning capabilities to the 
+pushcart. </p>
+	<video width="480" height="852" controls="controls">
+	    <source src="big_mute.mp4" type="video/mp4">
+	</video>
+    </div>
+
+    <p><strong> Radio Frequency Progress </strong> </p>
+    <img src="radio.png" width="480" height="240">
+    <p> The image above showcases our progress in using the Infineon P2G
+ to detect a gesture from one of our team members' hands. So far, we 
+have successfully enabled the board to recognize the gesture. 
+Additionally, we are working on isolating the hand image using MATLAB 
+for further analysis. </p>
+
+<div class="section">
+	<h2> Poster </h2>
+	<img src="2025.png" width=1100 height=920>
+</div>
+<div class="section">
+    <h2>Updated Gesture Recognition Pipeline</h2>
+    <h3>Input Data Type</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Use I/Q radar data to generate range-Doppler images.</li>
+        <li>Process those images using OpenCV (thresholding, regionprops, etc.).</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>Use raw numerical output from the radar board — whatever values the board provides per frame.</li>
+        <li>No image generation or I/Q reconstruction — just flatten the raw radar frame.</li>
+    </ul>
+
+    <h3>Preprocessing Pipeline</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Convert I/Q data into Doppler maps using FFT.</li>
+        <li>Apply image processing to extract features like bounding box, centroid, mean intensity (6 handcrafted features).</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>Skip FFT and image steps entirely.</li>
+        <li>No handcrafted feature extraction.</li>
+        <li>Feed raw radar values directly as input vectors to the ML model.</li>
+    </ul>
+
+    <h3>Feature Extraction</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Extract 6 features per radar frame (area, centroid Y/X, bounding box H/W, intensity).</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>No explicit features.</li>
+        <li>Model learns from patterns in raw 64-value (or variable-length) radar arrays.</li>
+    </ul>
+
+    <h3>Machine Learning Approach</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Use SVM with ECOC (Error Correcting Output Code) for multiclass classification.</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>Use SVM with One-vs-Rest strategy from scikit-learn — simpler, lightweight, and works well for small gesture sets.</li>
+    </ul>
+
+    <h3>Training Method</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Train model live or semi-live on the Raspberry Pi, possibly during deployment.</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>Train model offline using a separate Python script (<code>train_model_raw64.py</code>) with labeled <code>.npy</code> radar frames.</li>
+        <li>Save as a <code>.pkl</code> file and transfer it to the Raspberry Pi.</li>
+    </ul>
+
+    <h3>Runtime Classifier</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Generate live Doppler images on Pi, extract features, and run classification.</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>Read raw values per frame from serial pipe.</li>
+        <li>Flatten and classify using pre-trained model (<code>main_classifier_raw64.py</code>).</li>
+        <li>No image processing, no feature engineering.</li>
+    </ul>
+
+    <h3>System Behavior</h3>
+    <p><strong>Original Plan:</strong></p>
+    <ul>
+        <li>Adaptive: system continues to train or refine on the Pi over time.</li>
+    </ul>
+    <p><strong>Now:</strong></p>
+    <ul>
+        <li>Static: model is trained offline and deployed. Re-training happens only when needed by updating the model manually.</li>
+    </ul>
+</div>
+
+<section id="design-concept">
+  <h2>Design Concept Table</h2>
+  <table border="1" cellspacing="0" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Traction Device</th>
+        <th>Golf Club Storage</th>
+        <th>Motor Placement and Turning</th>
+        <th>Processing Unit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tank Tread</td>
+        <td>Manual Push Cart (purchased premade)</td>
+        <td>Replace The Front Wheel(s) with 2 motorized movement devices</td>
+        <td>Separate Portable MCU</td>
+      </tr>
+      <tr>
+        <td>Wheels</td>
+        <td>Motorized Push Cart (purchased premade)</td>
+        <td>Motors in the back wheels</td>
+        <td>On-Board MCU (XMC4700)</td>
+      </tr>
+      <tr>
+        <td>Wheels</td>
+        <td>Handmade Push Cart</td>
+        <td>Replace Front Wheel(s) with prebuilt device with motors and battery</td>
+        <td>Utility Cart Single motor providing movement, and have a separate turning mechanism</td>
+      </tr>
+      <tr>
+        <td>Wheels</td>
+        <td>Collapsible Wagon</td>
+        <td>Built in Motor Mechanism</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Medium Fidelity Concepts</h3>
+  <p><strong>Motorized cart, wheels, built in motor mechanism, XMC4700:</strong> The Motorized golf push cart, its built-in motor mechanism, regular wheels, and with the radar board processing everything is feasible. It can get things done and wouldn’t be impossible to implement. However, the motorized push cart can be expensive and outside of the budget.</p>
+
+  <p><strong>Utility Cart, wheels, back wheel motors, portable MCU:</strong> The utility cart, standard wheels, motors in the back wheels, and software on a portable device makes this a viable system. It can carry multiple clubs, along with the portable device and bigger battery comfortably, but keeping clubs secure may prove difficult.</p>
+
+  <p><strong>Manual cart, wheels, prebuilt device, XMC4700:</strong> The manual push cart, with wheels on a prebuilt device with the motors and battery, and processing the radar data on the radar board is plausible as well. It has viable movement and can house everything at the front. However, the push cart has the possibility of being too heavy.</p>
+
+  <p><strong>Manual cart, tank treads, front wheels motorized device, XMC4700:</strong> The combination using tank treads for increased traction and stability on various terrains. A manual golf push cart offers a simple and lightweight base. By replacing the front wheels with motorized devices, it gains movement control, while the radar board itself handles basic data processing and navigation. This combination balances rugged terrain navigation with essential data feedback, making it medium-fidelity due to its straightforward design and moderate motor integration.</p>
+
+  <p><strong>Motorized cart, wheels, built in motors, portable MCU:</strong> Using wheels with a motorized golf push cart that has a built-in motor offers a balance of prebuilt functionality and ease of use. The software on a portable device ensures the cart can adapt to more advanced control and data collection needs. This combination offers medium-fidelity because it balances between off-the-shelf solutions and customizable control and data gathering, but is expensive.</p>
+
+  <h3>High Fidelity Concepts</h3>
+  <p><strong>Manual cart, wheels, front wheel motors, portable MCU:</strong> The manual golf push cart, modified by replacing the front wheel with two motors and a set of wheels, with the portable device with uploaded software, proves to be one of the best choices. It has the engineering of an actual golf push cart, but allows the team lots of free space to modify it and includes everything needed for the project. It also allows for stronger processing power meaning that we get to use more complex algorithms since it’s only using the board as a sensor.</p>
+
+  <p><strong>Manual cart, wheels, back wheel motors, portable MCU:</strong> This configuration keeps the manual golf push cart lightweight and simple but enhances it with motors in the back wheels for improved propulsion and ease of use. The wheels provide smooth movement on various surfaces, while the software on a portable device offers sophisticated data collection and movement control, allowing for real-time feedback and precise navigation. This is a high-fidelity solution due to its motorized upgrades and advanced software for performance optimization.</p>
+
+  <p><strong>Handmade cart, tank treads, back wheel motors, portable MCU:</strong> A handmade push cart outfitted with tank treads, providing excellent traction and the ability to handle rough terrain with ease. Motors in the back wheels offer powered movement, reducing the need for manual pushing while maintaining the simplicity of the cart’s design. This setup includes software on a portable device that manages real-time navigation, data collection, and movement control. This combination creates a robust, high-fidelity system by integrating advanced control and data features with a straightforward, handmade cart structure.</p>
+
+  <h3>Concepts Summary</h3>
+  <ul>
+    <li><strong>Concept 1:</strong> Modified manual push cart, standard wheels, dual front wheel power, portable MCU</li>
+    <li><strong>Concept 2:</strong> Modified manual push cart, standard wheels, rear wheel power, portable MCU</li>
+    <li><strong>Concept 3:</strong> Modified manual push cart, standard wheels, dual front wheel power, XMC4700</li>
+    <li><strong>Concept 4:</strong> Modified manual push cart, standard wheels, rear wheel power, XMC4700</li>
+  </ul>
+
+  <h3>Cart Construction</h3>
+  <p>Concept 1, which involved a modified manual golf push cart with standard wheels, rear wheel motorization, and control via the XMC4700 microcontroller, remained the most feasible and practical design option throughout the development process. Its simplicity in mechanical structure significantly reduced the required fabrication time, allowing the team to focus on system integration and functional testing.</p>
+
+  <p>As construction commenced, the radar system was initially mounted at the rear of the cart to maximize unobstructed gesture detection from the user's perspective. This positioning aligned well with our preliminary testing environment and allowed for more direct signal reception during forward motion. However, during early prototyping, we identified power distribution as a key consideration for system stability and runtime. To address this, we opted to use two 24V 4Ah Kobalt lithium-ion batteries—one dedicated to each motor. This approach not only reduced wiring complexity and ensured balanced power delivery but also provided sufficient current to drive both motors independently without overloading a single source.</p>
+
+  <p>As development progressed, the control architecture required more flexibility and computational power than initially expected. Although the XMC4700 microcontroller handled low-level control tasks effectively, we ultimately incorporated a Raspberry Pi unit to manage machine learning-based gesture classification in real time. To isolate its power draw from the motor subsystem and avoid interference or voltage drops, a separate portable battery pack was introduced exclusively for the Raspberry Pi. This modular separation of subsystems allowed for safer debugging, better power monitoring, and easier system updates.</p>
+
+  <p>The iterative refinement of Concept 1 demonstrates the project's adaptive engineering process, where real-world constraints and performance observations informed a sequence of incremental improvements. Each design choice—from power distribution to control hierarchy—was evaluated through testing and adjusted to meet performance, budget, and time constraints while maintaining system robustness and user safety.</p>
+
+  <h3>Software Development and Algorithm Refinement</h3>
+  <p>The initial stages of software development began in MATLAB, where the team pursued a vision-driven approach to gesture recognition. Early efforts focused on generating a live radar Doppler feed—a time-varying image representation of motion derived from real-time I/Q radar data. The goal was to use this Doppler imagery to train a machine learning algorithm based on image processing techniques, allowing the system to distinguish gestures using visual patterns rather than numerical features.</p>
+
+  <p>While this method allowed for effective visualization and conceptual development, it quickly became evident that it was not feasible for the final implementation. Generating and processing Doppler images in real time placed excessive computational demands on embedded hardware, and MATLAB’s limited compatibility with the Raspberry Pi made integration impractical.</p>
+
+  <p>In response, the project transitioned to a Python-based implementation, which provided greater flexibility, improved computational efficiency, and seamless compatibility with the Raspberry Pi platform. However, concerns arose regarding the Raspberry Pi’s ability to handle both radar data processing and real-time gesture classification simultaneously.</p>
+
+  <p>To address these challenges, the team restructured the software architecture into two distinct modules:</p>
+  <ul>
+    <li><strong>Trainer Module (Computer-side):</strong> Designed to operate on a high-performance computer, the trainer was responsible for extracting statistical features from the radar data and training a Support Vector Machine (SVM) classifier. It also calculated key performance metrics, including precision, recall, F1-score, and class-specific averages, to evaluate model accuracy and robustness.</li>
+    <li><strong>Offline Classifier (Pi-side):</strong> A lightweight classifier was developed for deployment on the Raspberry Pi. This module utilized the pre-trained model generated by the trainer to classify incoming radar data in real time without re-training or intensive computation, ensuring smooth execution on the constrained hardware.</li>
+  </ul>
+
+  <p>Additionally, a custom data pipeline was designed and implemented to manage the real-time transfer of raw I/Q radar data from the Infineon Position2Go board to the Raspberry Pi. This pipeline involved parsing the radar’s custom binary output format, managing data buffering, and ensuring synchronization between data acquisition and classification.</p>
+
+  <h3>Final Design</h3>
+  <p>The final design of the Hand Gesture-Controlled Golf Push Cart integrates a modular system architecture optimized for real-time performance and user convenience. The cart itself is based on a modified manual golf push cart platform equipped with two rear-mounted motors powered independently by two 24V 4Ah Kobalt lithium-ion batteries. This configuration provides balanced torque distribution and reliable movement across grassy terrains. Mounted at the rear of the cart is the Infineon Position2Go radar board, responsible for detecting user gestures within a 2-meter range. Radar signals are transmitted to a Raspberry Pi microcontroller unit, which runs a lightweight offline classifier to interpret the gestures and translate them into motor commands. A separate portable battery pack powers the Raspberry Pi, isolating its energy requirements from the motors to ensure system stability and prevent voltage drops during operation.</p>
+
+  <p>The control software is divided into two main components: a computer-based trainer module and a Raspberry Pi-based classifier. The trainer module, executed on a higher-powered computer, is responsible for model training, performance evaluation, and optimization of gesture recognition using support vector machine algorithms. The offline classifier on the Raspberry Pi loads the pre-trained model to perform real-time gesture classification with minimal computational overhead. A custom data pipeline efficiently streams radar data from the Position2Go board to the Raspberry Pi, ensuring synchronized communication and low-latency processing. The final system is built to provide accurate and responsive hands-free control while adhering to budgetary, environmental, and performance requirements established at the project’s outset.</p>
+</section>
+
+<section id="Picture of Project">
+	<h2>Picture of Final Project </h2>
+	<img src="picy.jpg" width="500" height="500">
+	<img src="picy2.jpg" width="500" height="500">
+
+</section>
+
+
+
+</body></html>
